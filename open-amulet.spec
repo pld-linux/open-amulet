@@ -8,7 +8,7 @@ Group:		Libraries
 Group(pl):	Biblioteki
 Source:		http://www.openip.org/oa/%name-%version.tar.gz
 #Patch:
-Buildroot: /tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_prefix	/usr/X11R6
 
