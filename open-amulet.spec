@@ -71,6 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/libamulet*.so
-%attr(755,root,root) %{_libdir}/libamulet*.la
+%{_libdir}/libamulet*.la
 %{_aclocaldir}/acamulet.m4
 %dir %{_datadir}/open-amulet
