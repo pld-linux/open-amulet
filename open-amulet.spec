@@ -3,11 +3,12 @@ Summary(pl):	Open Amulet
 Name:		open-amulet
 Version:	4.3
 Release:	1
-Copyright:	GPL
+License:	GPL
 Group:		Libraries	
+######		Unknown group!
 Group(pl):	Biblioteki
-Source:		http://www.openip.org/oa/%name-%version.tar.gz
-#Patch:
+Source0:	http://www.openip.org/oa/%name-%version.tar.gz
+Patch0:		
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_prefix	/usr/X11R6
@@ -21,6 +22,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Summary:	OA devel
 Summary(pl):	OA devel
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 
 %description devel
@@ -45,14 +48,14 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc
 %attr(755,root,root) %{_libdir}/libamulet*
 
 # optional package
 
 %files devel
-%defattr(644, root, root, 755)
+%defattr(644,root,root,755)
 %doc
 %attr(644,root,root) %{_includedir}/am_*
 %attr(644,root,root) %{_includedir}/amulet.h
@@ -64,7 +67,3 @@ rm -rf $RPM_BUILD_ROOT
 %dir	%{_datadir}/open-amulet
 
 #end of optional package
-
-%changelog
-* Wed Oct 17 1999 Wojciech "Sas" Ciêciwa <cieciwa@alpha.zarz.agh.edu.pl>
-- build RPM.
