@@ -41,7 +41,7 @@ Pakiet dla programistów u¿ywaj±cych Open Amulet.
 
 %build
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %configure \
 	--with-x
