@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Libraries
 Source0:	http://www.openip.org/oa/%{name}-%{version}.tar.gz
+# Source0-md5:	ecf887082f92085488add2b2d10cdb37
 Patch0:		%{name}-DESTDIR_fix.patch
 URL:		http://www.openip.org/
 BuildRequires:	autoconf
