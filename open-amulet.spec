@@ -1,4 +1,5 @@
 Summary:	A portable OpenGL GUI library for highly interactive applications
+Summary(pl):	Przeno∂na biblioteka GUI OpenGL do interaktywnych aplikacji
 Name:		open-amulet
 Version:	4.3
 Release:	1
@@ -6,8 +7,13 @@ License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
 Group(es):	X11/Bibliotecas
+Group(fr):	X11/Librairies
 Group(pl):	X11/Biblioteki
+Group(pt_BR):	X11/Bibliotecas
+Group(ru):	X11/‚…¬Ã…œ‘≈À…
+Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Source0:	http://www.openip.org/oa/%{name}-%{version}.tar.gz
+URL:		http://www.openip.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -16,16 +22,28 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A portable GUI library for highly interactive applications, with
 OpenGL support etc.
 
+%description -l pl
+Przeno∂na biblioteka GUI do wysoko interaktywnych aplikacji, z obs≥ug±
+OpenGL itp.
+
 %package devel
-Summary:	OA devel
-Summary(pl):	OA devel
+Summary:	Open Amulet development package
+Summary(pl):	Pakiet dla programistÛw uøywaj±cych Open Amulet
 Group:		X11/Development/Libraries
 Group(de):	X11/Entwicklung/Libraries
+Group(es):	X11/Desarrollo/Bibliotecas
+Group(fr):	X11/Development/Librairies
 Group(pl):	X11/Programowanie/Biblioteki
+Group(pt_BR):	X11/Desenvolvimento/Bibliotecas
+Group(ru):	X11/Ú¡⁄“¡¬œ‘À¡/‚…¬Ã…œ‘≈À…
+Group(uk):	X11/Úœ⁄“œ¬À¡/‚¶¬Ã¶œ‘≈À…
 Requires:	%{name} = %{version}
 
 %description devel
-OA devel.
+Open Amulet development package.
+
+%description devel -l pl
+Pakiet dla programistÛw uøywaj±cych Open Amulet.
 
 %prep
 %setup -q
@@ -44,11 +62,11 @@ rm -rf $RPM_BUILD_ROOT
 
 gzip -9nf readme.txt
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
