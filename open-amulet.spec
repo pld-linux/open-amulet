@@ -54,8 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	macrosdir=%{_aclocaldir}
 
-gzip -9nf readme.txt
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -68,7 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc readme.txt
 %{_includedir}/*
 %attr(755,root,root) %{_libdir}/libamulet*.so
 %{_libdir}/libamulet*.la
