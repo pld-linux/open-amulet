@@ -1,69 +1,64 @@
-Summary:	Open Amulet
-Summary(pl):	Open Amulet
+Summary:	A portable OpenGL GUI library for highly interactive applications
 Name:		open-amulet
 Version:	4.3
 Release:	1
 License:	GPL
-Group:		Libraries	
-######		Unknown group!
-Group(pl):	Biblioteki
-Source0:	http://www.openip.org/oa/%name-%version.tar.gz
-Patch0:		
+Group:		X11/Libraries
+Group(de):	X11/Libraries
+Group(es):	X11/Bibliotecas
+Group(pl):	X11/Biblioteki
+Source0:	http://www.openip.org/oa/%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	_prefix	/usr/X11R6
+%define		_prefix		/usr/X11R6
 
 %description
+A portable GUI library for highly interactive applications, with
+OpenGL support etc.
 
-%description -l pl
-
-# optional package =====================
 %package devel
 Summary:	OA devel
 Summary(pl):	OA devel
-Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
+Group:		X11/Development/Libraries
+Group(de):	X11/Entwicklung/Libraries
+Group(pl):	X11/Programowanie/Biblioteki
+Requires:	%{name} = %{version}
 
 %description devel
-%description -l pl devel
-
-# end of optional package ==============
+OA devel.
 
 %prep
 %setup -q
 
 %build
-./autogen.sh
-./configure --prefix=%{_prefix} \
+%configure \
 	--with-x
-%{__make} RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-%{__make} prefix=$RPM_BUILD_ROOT%{_prefix} install
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	macrosdir=%{_aclocaldir}
+
+gzip -9nf readme.txt
+
+%post   -p /sbin/ldconfig
+%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc
-%attr(755,root,root) %{_libdir}/libamulet*
-
-# optional package
+%attr(755,root,root) %{_libdir}/libamulet*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc
-%attr(644,root,root) %{_includedir}/am_*
-%attr(644,root,root) %{_includedir}/amulet.h
-%attr(644,root,root) %{_includedir}/oa_dl_import.h
-%attr(644,root,root) %{_includedir}/amulet/*.h*
-%attr(644,root,root) %{_includedir}/amulet/impl/*
+%doc *.gz
+%{_includedir}/*
+%attr(755,root,root) %{_libdir}/libamulet*.so
 %attr(755,root,root) %{_libdir}/libamulet*.la
-%attr(644,root,root) %{_datadir}/aclocal/acamulet.m4
-%dir	%{_datadir}/open-amulet
-
-#end of optional package
+%{_aclocaldir}/acamulet.m4
+%dir %{_datadir}/open-amulet
