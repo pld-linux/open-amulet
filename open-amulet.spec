@@ -42,7 +42,7 @@ Pakiet dla programistów u¿ywaj±cych Open Amulet.
 %build
 libtoolize --copy --force
 aclocal
-autoconf
+%{__autoconf}
 %configure \
 	--with-x
 %{__make}
