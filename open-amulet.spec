@@ -2,7 +2,7 @@ Summary:	A portable OpenGL GUI library for highly interactive applications
 Summary(pl):	Przeno∂na biblioteka GUI OpenGL do interaktywnych aplikacji
 Name:		open-amulet
 Version:	4.3
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Libraries
 Group(de):	X11/Libraries
@@ -13,7 +13,11 @@ Group(pt_BR):	X11/Bibliotecas
 Group(ru):	X11/‚…¬Ã…œ‘≈À…
 Group(uk):	X11/‚¶¬Ã¶œ‘≈À…
 Source0:	http://www.openip.org/oa/%{name}-%{version}.tar.gz
+Patch0:		%{name}-DESTDIR_fix.patch
 URL:		http://www.openip.org/
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -47,8 +51,12 @@ Pakiet dla programistÛw uøywaj±cych Open Amulet.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
 %configure \
 	--with-x
 %{__make}
