@@ -40,7 +40,7 @@ Pakiet dla programistów u¿ywaj±cych Open Amulet.
 %patch0 -p1
 
 %build
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %configure \
