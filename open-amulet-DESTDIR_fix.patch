@@ -1,0 +1,13 @@
+--- ./data/Makefile.in.org	Sun Oct 10 18:46:37 1999
++++ ./data/Makefile.in	Sat Dec  8 19:33:03 2001
+@@ -307,8 +307,8 @@
+ 
+ # Install a link for compatibility (TODO: Remove!)
+ install-data-local :
+-	rm -f $(pkgdatadir)/lib
+-	ln -s ./ $(pkgdatadir)/lib
++	rm -f $(DESTDIR)$(pkgdatadir)/lib
++	ln -s ./ $(DESTDIR)$(pkgdatadir)/lib
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
