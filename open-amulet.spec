@@ -27,7 +27,7 @@ OpenGL itp.
 Summary:	Open Amulet development package
 Summary(pl):	Pakiet dla programistów u¿ywaj±cych Open Amulet
 Group:		X11/Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Open Amulet development package.
