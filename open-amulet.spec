@@ -1,5 +1,5 @@
 Summary:	A portable OpenGL GUI library for highly interactive applications
-Summary(pl.UTF-8):   Przenośna biblioteka GUI OpenGL do interaktywnych aplikacji
+Summary(pl.UTF-8):	Przenośna biblioteka GUI OpenGL do interaktywnych aplikacji
 Name:		open-amulet
 Version:	4.3
 Release:	2
@@ -25,7 +25,7 @@ OpenGL itp.
 
 %package devel
 Summary:	Open Amulet development package
-Summary(pl.UTF-8):   Pakiet dla programistów używających Open Amulet
+Summary(pl.UTF-8):	Pakiet dla programistów używających Open Amulet
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
